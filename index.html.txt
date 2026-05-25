@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    background:black;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* أقسام الموقع */
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px 20px;
+}
+
+/* العنوان */
+.glow-text{
+    font-size:45px;
+    color:#ff4fd8;
+    text-shadow:0 0 10px #ff4fd8,0 0 40px #b300ff;
+}
+
+/* input */
+input{
+    width:300px;
+    padding:15px;
+    border-radius:12px;
+    border:2px solid #b300ff;
+    background:#111;
+    color:white;
+    text-align:center;
+    font-size:18px;
+    margin-top:20px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#b300ff;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* القلب */
+.heart{
+    width:120px;
+    height:120px;
+    background:#ff2d75;
+    transform:rotate(45deg);
+    position:relative;
+    animation:pulse 1.2s infinite;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:#ff2d75;
+    border-radius:50%;
+}
+
+.heart::before{ left:-60px; }
+.heart::after{ top:-60px; }
+
+@keyframes pulse{
+    0%{transform:scale(1) rotate(45deg);}
+    50%{transform:scale(1.2) rotate(45deg);}
+    100%{transform:scale(1) rotate(45deg);}
+}
+
+/* الرسالة */
+.box{
+    width:90%;
+    max-width:800px;
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:20px;
+    line-height:2.2;
+    font-size:20px;
+    box-shadow:0 0 30px rgba(179,0,255,0.3);
+}
+
+/* الصور */
+img{
+    width:320px;
+    height:430px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 40px #b300ff;
+    margin-top:20px;
+}
+
+/* رسالة تحت الصور */
+.love-text{
+    margin-top:15px;
+    font-size:18px;
+    color:#ffb6ff;
+    text-shadow:0 0 10px #b300ff;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+    100%{transform:translateY(0);}
+}
+
+/* زر يوتيوب */
+.next-btn{
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#b300ff,#ff4fd8);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* يوتيوب */
+iframe{
+    width:320px;
+    height:200px;
+    border-radius:15px;
+    box-shadow:0 0 25px #b300ff;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- موسيقى -->
+<audio id="music" loop>
+<source src="PUT-MUSIC.mp3" type="audio/mp3">
+</audio>
+
+<!-- البداية -->
+<div class="section">
+
+    <div class="glow-text">كل سنة وانتي طيبة 🤍</div>
+
+    <input type="password" id="pass" placeholder="اكتبي الباسورد">
+    <button onclick="check()">دخول</button>
+
+</div>
+
+<!-- القلب -->
+<div class="section">
+    <div class="heart" onclick="openHeart()"></div>
+</div>
+
+<!-- الرسالة الكاملة (بدون اختصار) -->
+<div class="section">
+
+    <div class="box">
+
+        انا مش عارف هتشوفي الكلام ده امتا ومش عارف الي بينا هيكون اتصلح ولا لا  
+        <br><br>
+
+        ومش عارف الدنيا هتودينا فين كمان شويه بس الثابت بالنسبالي ومتغيرش اني لسه بحبك وهفضل احبك ومش عاوز غيرك  
+        <br><br>
+
+        كان نفسي اكون معاكي اليوم ده زي م كنت راسم ومخطط وكنت عاوز ابسطك بس عادي المهم ان كله بخير وتمام معاكي  
+        <br><br>
+
+        كل سنه ونتي طيبه يحبيبي 🤍  
+
+    </div>
+
+</div>
+
+<!-- الصور + رسائل حب -->
+<div class="section">
+
+    <img src="https://i.postimg.cc/m2FvSbm8/63f3a7ea-b772-4640-8a2f-041e37fbe49d.jpg">
+    <div class="love-text">أحلى ضحكة شوفتها ❤️</div>
+
+</div>
+
+<div class="section">
+
+    <img src="https://i.postimg.cc/L6ZcVHyp/24e68085-8f7a-4ac7-99a1-db103016306e.jpg">
+    <div class="love-text">وجودك بيطمن قلبي 🤍</div>
+
+</div>
+
+<div class="section">
+
+    <img src="https://i.postimg.cc/XvvBTDG2/0e817996-6338-4ba2-b478-03daf623cdab.jpg">
+    <div class="love-text">كل لحظة معاكي ذكرى ❤️</div>
+
+</div>
+
+<!-- زر الانتقال لليوتيوب -->
+<div class="section">
+
+    <button onclick="goYT()" class="next-btn">
+        شوف الفيديو 🎥
+    </button>
+
+</div>
+
+<!-- صفحة اليوتيوب -->
+<div class="section" id="yt">
+
+    <div class="glow-text">فيديو ليكي 🤍</div>
+
+    <iframe 
+        src="https://www.youtube.com/embed/u7MxCuYPQT4"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<!-- النهاية -->
+<div class="section">
+
+    <h1 style="font-size:55px;text-shadow:0 0 20px #b300ff;">
+        بحبك 🤍
+    </h1>
+
+</div>
+
+<script>
+
+function check(){
+let pass = document.getElementById('pass').value;
+
+if(pass === "2062003"){
+document.querySelectorAll('.section')[1].scrollIntoView({behavior:'smooth'});
+}else{
+alert("الباسورد غلط 😢");
+}
+}
+
+function openHeart(){
+document.getElementById('music').play();
+document.querySelectorAll('.section')[2].scrollIntoView({behavior:'smooth'});
+}
+
+function goYT(){
+document.getElementById('yt').scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+</body>
+</html>
